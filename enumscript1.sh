@@ -14,7 +14,7 @@ nmap -T4 -n -sn $ipaddr -oG livehosts
 cat livehosts | grep Status | cut -d " " -f 2 > inputlist.txt
 
 #taking live hosts and running OS detection on them via nmap again and saving to a greppable file
-nmap -iL inputlist -O -oG 4sorting
+nmap -iL inputlist.txt -O -oG 4sorting
 
 #Cutting and soting the versionscan output into Windows and Linux hosts
 cat 4sorting | grep OS | grep Linux | cut -d " " -f 2 > linuxhosts.txt
